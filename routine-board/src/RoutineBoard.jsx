@@ -531,7 +531,6 @@ function Hanja({ go, done }) {
   const [mode, setMode] = useState(null); // null=랜딩, "practice", "easy", "hard"
   const [idx, setIdx] = useState(0);
   const [answer, setAnswer] = useState({m:"",r:""});
-  const [revealed, setRevealed] = useState(false);
   const [score, setScore] = useState(0);
   const [choices, setChoices] = useState([]);
   const [result, setResult] = useState(null); // null | "correct" | "wrong"

@@ -544,14 +544,12 @@ function Hanja({ go, done }) {
 
   function startMode(m) {
     setMode(m); setIdx(0); setScore(0); setWrong([]);
-    setRevealed(false); setAnswer({m:"",r:""}); setResult(null); setFinished(false);
     if (m==="easy") setChoices(createChoices(list[0], list));
   }
 
   function nextCard() {
     if (idx >= total-1) { setFinished(true); return; }
     const next = idx+1;
-    setIdx(next); setRevealed(false); setAnswer({m:"",r:""});
     setResult(null);
     if (mode==="easy") setChoices(createChoices(list[next], list));
   }

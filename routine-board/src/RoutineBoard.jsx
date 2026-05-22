@@ -531,6 +531,7 @@ function Hanja({ go, done }) {
   const [mode, setMode] = useState(null); // null=랜딩, "practice", "easy", "hard"
   const [idx, setIdx] = useState(0);
   const [answer, setAnswer] = useState({m:"",r:""});
+  const [revealed, setRevealed] = useState(false);
   const [score, setScore] = useState(0);
   const [choices, setChoices] = useState([]);
   const [result, setResult] = useState(null); // null | "correct" | "wrong"
@@ -544,12 +545,14 @@ function Hanja({ go, done }) {
 
   function startMode(m) {
     setMode(m); setIdx(0); setScore(0); setWrong([]);
+    setRevealed(false); setAnswer({m:"",r:""}); setResult(null); setFinished(false);
     if (m==="easy") setChoices(createChoices(list[0], list));
   }
 
   function nextCard() {
     if (idx >= total-1) { setFinished(true); return; }
     const next = idx+1;
+    setIdx(next); setRevealed(false); setAnswer({m:"",r:""});
     setResult(null);
     if (mode==="easy") setChoices(createChoices(list[next], list));
   }
